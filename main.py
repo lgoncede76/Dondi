@@ -3,10 +3,12 @@ import pandas as pd
 import os
 import time
 
+from datetime import datetime
 
-#print(ds)
 
-#Menu
+fecha_actual = datetime.now().date()
+
+
 opt= 0
 while opt != 4:
 
@@ -14,10 +16,9 @@ while opt != 4:
 
     ds = pd.read_csv("Registro_Diario.csv", index_col=0)
 
-    prov_act = ds.groupby('Proveedor', as_index=False).sum('Monto')
+    prov = ds.groupby('Proveedor', as_index=False).sum('Monto')
 
-    prov_act = prov_act.loc[prov_act['Monto'] != 0, ['Proveedor']]
-
+    prov_act = prov.loc[prov['Monto'] != 0, ['Proveedor']]
 
     print("1.- Agregar Registro")
     print("2.- Rellenar")
@@ -48,6 +49,7 @@ while opt != 4:
             input("Precione Enter ...")
 
         case 4:
+
             os.system("clear")
             print("Saliendo ...")
             time.sleep( 3 )
