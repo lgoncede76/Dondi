@@ -33,9 +33,29 @@ while opt != 4:
         case 1:
             os.system("clear")
             print("\nAgregar Regiatro")
+            input("Precione Enter ...")
+
         case 2:
+
             os.system("clear")
+
             print("\nRellenar")
+
+            total_lineas_column  = ds.shape
+
+            total_lineas= total_lineas_column[0]
+
+            ultimo_registro = ds.iloc[total_lineas - 1]
+            
+            #Tomando la fecha como stream
+            ultima_fecha = ultimo_registro['Fecha']
+
+
+            print(type(ultima_fecha), ultima_fecha)
+
+
+            input("Precione Enter ...")
+
         case 3:
 
             os.system("clear")
@@ -52,5 +72,5 @@ while opt != 4:
 
             os.system("clear")
             print("Saliendo ...")
-            time.sleep( 3 )
+            time.sleep( 2 )
             os.system("clear")
