@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import time
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 fecha_actual = datetime.now().date()
@@ -50,10 +50,10 @@ while opt != 4:
             #Tomando la fecha como stream
             ultima_fecha = ultimo_registro['Fecha']
 
+            ultima_fechadt = datetime.strptime(ultima_fecha,"%Y-%m-%d").date()
 
-            print(type(ultima_fecha), ultima_fecha)
-
-
+            cant_no_registrada = fecha_actual - ultima_fechadt
+            print("Cantidad de dias sin Registrar: ", cant_no_registrada.days)
             input("Precione Enter ...")
 
         case 3:
